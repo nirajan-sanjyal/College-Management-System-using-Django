@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System | Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+        }
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar a:hover {
+            background: #1abc9c;
+        }
+        .dashboard-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h4 class="text-center">Admin Panel</h4>
+        <hr>
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-users"></i> Manage Students</a>
+        <a href="#"><i class="fas fa-user-tie"></i> Manage Staff</a>
+        <a href="#"><i class="fas fa-book"></i> Manage Courses</a>
+        <a href="#"><i class="fas fa-list"></i> Manage Subjects</a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i> Logout  kk</a>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-content">
+        <h2>Student Management System | Admin Dashboard</h2>
+        <div class="row">
+            <!-- Cards -->
+            <div class="col-md-3">
+                <div class="card text-white bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">15</h5>
+                        <p class="card-text">Total Students</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">22</h5>
+                        <p class="card-text">Total Staff</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">11</h5>
+                        <p class="card-text">Total Courses</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">18</h5>
+                        <p class="card-text">Total Subjects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Students and Staff Chart</h5>
+                        <canvas id="staffStudentChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Subjects in Each Course</h5>
+                        <canvas id="subjectsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Students and Staff Chart
+        new Chart(document.getElementById("staffStudentChart"), {
+            type: 'pie',
+            data: {
+                labels: ["Students", "Staff"],
+                datasets: [{
+                    data: [15, 22],
+                    backgroundColor: ["#3498db", "#e74c3c"]
+                }]
+            }
+        });
+
+        // Subjects in Each Course Chart
+        new Chart(document.getElementById("subjectsChart"), {
+            type: 'doughnut',
+            data: {
+                labels: ["Math", "Science", "History", "English"],
+                datasets: [{
+                    data: [5, 4, 3, 6],
+                    backgroundColor: ["#1abc9c", "#f39c12", "#8e44ad", "#e74c3c"]
+                }]
+            }
+        });
+    </script>
+
+</body>
+</html>
