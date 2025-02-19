@@ -56,7 +56,6 @@ def doRegistration(request):
         email_id = request.POST.get('email')
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirmPassword')
-        breakpoint()
         print(email_id)
         print(password)
         print(confirm_password)

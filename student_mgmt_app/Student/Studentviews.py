@@ -5,9 +5,11 @@ from django.core.files.storage import FileSystemStorage
 from django.urls import reverse
 import datetime
 from student_mgmt_app.models import CustomUser, Staffs, Courses, Subjects, Students, Attendance, AttendanceReport, LeaveReportStudent, FeedBackStudent, StudentResult
+from django.shortcuts import get_object_or_404
 
 def student_home(request):
-  student_obj = Students.objects.get(admin=request.user.id)
+  
+  student_obj = get_object_or_404(Students, pk=request.user.id)
   total_attendance =   AttendanceReport.objects.filter(student_id=student_obj).count()
   attendance_present = AttendanceReport.objects.filter(student_id=student_obj,
                                                        status=True).count()

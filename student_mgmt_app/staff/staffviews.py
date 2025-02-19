@@ -81,13 +81,18 @@ def staff_home(request):
 
 
 def staff_take_attendance(request):
+
+    print(request.user.id)
     subjects = Subjects.objects.filter(staff_id=request.user.id)
+
+    print(subjects)
+
     session_years = SessionYearModel.objects.all()
     context = {
         "subjects": subjects,
         "session_years": session_years
     }
-    return render(request, "staff_template/take_attendance_template.html", context)
+    return render(request, "staff_template/take_attendance.html", context)
 
 
 def staff_apply_leave(request):
