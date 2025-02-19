@@ -1,0 +1,59 @@
+{% extends 'staff_template/staff_base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <h2>Staff Dashboard</h2>
+    <div class="row">
+        <div class="col-md-3
+        ">
+            <div class="card bg-info text-white p-3">0 Students Under Me</div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white p-3">0 Total Attendance Taken</div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark p-3">0 Total Leave Taken</div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-danger text-white p-3">0 Total Subjects</div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <h5>Leave Status Chart</h5>
+            <canvas id="leaveChart"></canvas>
+        </div>
+        <div class="col-md-6">
+            <h5>Subjects Attend Chart</h5>
+            <canvas id="subjectChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const leaveCtx = document.getElementById('leaveChart').getContext('2d');
+        new Chart(leaveCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Leave', 'Attendance'],
+                datasets: [{
+                    data: [10, 20],
+                    backgroundColor: ['red', 'green']
+                }]
+            }
+        });
+
+        const subjectCtx = document.getElementById('subjectChart').getContext('2d');
+        new Chart(subjectCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Subjects Attend',
+                    data: [1, 2, 3, 4, 5],
+                    borderColor: 'blue'
+                }]
+            }
+        });
+    </script>
+{% endblock %}

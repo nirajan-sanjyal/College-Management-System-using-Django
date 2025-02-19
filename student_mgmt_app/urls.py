@@ -17,16 +17,13 @@ urlpatterns = [
     path('doRegistration', views.doRegistration, name="doRegistration"),
 
 
-
+ # student_views
     path('student_home/', student_home, name="student_home"),
-    path('student_view_attendance/', student_view_attendance, name="student_view_attendance"),
-    path('student_view_attendance_post/', student_view_attendance_post, name="student_view_attendance_post"),
-    path('student_apply_leave/', student_apply_leave, name="student_apply_leave"),
-    path('student_apply_leave_save/', student_apply_leave_save, name="student_apply_leave_save"),
-    path('student_feedback/', student_feedback, name="student_feedback"),
-    path('student_feedback_save/', student_feedback_save, name="student_feedback_save"),
-    path('student_profile/', student_profile, name="student_profile"),
-    path('student_profile_update/', student_profile_update, name="student_profile_update"),
-    path('student_view_result/', student_view_result, name="student_view_result"),
+   
+
+
+    # staff_views
+    path('staff_home/', staff_home, name='staff_home'),
+    path('take_attendance/', staff_take_attendance, name='take_attendance'),
 
 ]
